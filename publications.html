@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications - Ahmed Nour Abdesselam</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, #1e88e5 0%, #546e7a 100%);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+        }
+
+        .header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Navigation Styles */
+        .nav {
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav li {
+            padding: 1rem 0;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #546e7a;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav a:hover, .nav a.active {
+            background-color: #1e88e5;
+            color: white;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .section {
+            background: white;
+            border-radius: 8px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .section h2 {
+            color: #1e88e5;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            font-weight: 400;
+            border-bottom: 3px solid #e3f2fd;
+            padding-bottom: 0.5rem;
+        }
+
+        /* Publication Item Styles */
+        .publication-item {
+            background: #f8f9fa;
+            border-left: 4px solid #1e88e5;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 0 8px 8px 0;
+            transition: all 0.3s ease;
+        }
+
+        .publication-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .publication-item .title {
+            color: #1e88e5;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .publication-item .authors {
+            color: #546e7a;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .publication-item .venue {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .publication-item .abstract {
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .publication-item .keywords {
+            margin-bottom: 1.5rem;
+        }
+
+        .publication-item .keywords span {
+            background: #e3f2fd;
+            color: #1e88e5;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .publication-item .links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .publication-item .links a {
+            background: #1e88e5;
+            color: white;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .publication-item .links a:hover {
+            background: #1565c0;
+        }
+
+        .publication-item .links a.secondary {
+            background: #546e7a;
+        }
+
+        .publication-item .links a.secondary:hover {
+            background: #37474f;
+        }
+
+        /* Stats Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-top: 4px solid #1e88e5;
+        }
+
+        .stat-card .number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #1e88e5;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card .label {
+            color: #666;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Research Areas */
+        .research-areas {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f5f5f5 100%);
+            border-left: 4px solid #1e88e5;
+            padding: 2rem;
+            border-radius: 0 8px 8px 0;
+            margin: 2rem 0;
+        }
+
+        .research-areas h3 {
+            color: #1e88e5;
+            margin-bottom: 1.5rem;
+        }
+
+        .areas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .area-tag {
+            background: white;
+            color: #546e7a;
+            padding: 0.8rem 1.2rem;
+            border-radius: 25px;
+            text-align: center;
+            font-weight: 500;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Upcoming Work */
+        .upcoming-work {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 2rem;
+            border-radius: 0 8px 8px 0;
+            margin: 2rem 0;
+        }
+
+        .upcoming-work h3 {
+            color: #ff9800;
+            margin-bottom: 1rem;
+        }
+
+        .upcoming-work p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .upcoming-work ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .upcoming-work li {
+            padding: 0.5rem 0;
+            color: #666;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .upcoming-work li::before {
+            content: "⏳";
+            position: absolute;
+            left: 0;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #546e7a;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .nav ul {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .nav li {
+                border-bottom: 1px solid #eee;
+            }
+
+            .section {
+                padding: 2rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .publication-item {
+                padding: 1.5rem;
+            }
+
+            .publication-item .links {
+                flex-direction: column;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-content">
+            <h1>Publications & Research Output</h1>
+            <div class="subtitle">Academic Contributions and Scholarly Work</div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="publications.html" class="active">Publications</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Publication Stats -->
+        <!--<div class="stats-grid">
+            <div class="stat-card">
+                <div class="number">1</div>
+                <div class="label">Published Papers</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">3</div>
+                <div class="label">Research Projects</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">2</div>
+                <div class="label">Ongoing Studies</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">4</div>
+                <div class="label">Collaborations</div>
+            </div>
+        </div>-->
+
+        <!-- Published Papers -->
+        <section class="section">
+            <h2>Published Papers</h2>
+            
+            <div class="publication-item">
+                <div class="title">Side-Channel Analysis for Hardware Trojan Detection: A Deep Learning Approach</div>
+                <div class="authors"><strong>Molcer, P.S.</strong>, <strong>Abdesselam, A.N.</strong> (2025)</div>
+                <div class="venue">In: Kovács, T.A., Fürstner, I. (eds) Critical Infrastructure Protection: Advanced Technologies for Crisis Prevention and Response. NATO ATC 2024. NATO Science for Peace and Security Series C: Environmental Security. Springer, Dordrecht.</div>
+                
+                <div class="abstract">
+                    This research presents a novel deep learning framework for detecting hardware Trojans in System-on-Chip (SoC) architectures through side-channel analysis. The approach leverages convolutional and feedforward neural networks to analyze power consumption patterns and electromagnetic emissions, enabling the identification of malicious hardware modifications that could compromise IoT device security. The methodology demonstrates significant improvements in detection accuracy compared to traditional statistical methods, contributing to enhanced security measures for embedded systems in critical infrastructure applications.
+                </div>
+                
+                <div class="keywords">
+                    <span>Hardware Security</span>
+                    <span>Deep Learning</span>
+                    <span>Side-Channel Analysis</span>
+                    <span>IoT Security</span>
+                    <span>System-on-Chip</span>
+                    <span>Trojan Detection</span>
+                </div>
+                
+                <div class="links">
+                    <a href="https://doi.org/10.1007/978-94-024-2308-2_15" target="_blank">View Paper</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ongoing Research
+        <section class="section">
+            <h2>Ongoing Research & Upcoming Publications</h2>
+            
+            <div class="upcoming-work">
+                <h3>Work in Progress</h3>
+                <p>Several research initiatives are currently underway, with manuscripts in preparation for submission to top-tier venues in computer science and engineering:</p>
+                
+                <div class="publication-item">
+                    <div class="title">Enhancing Variable Neighborhood Search Performance using Reinforcement Learning for Relay Node Deployment in Wireless Sensor Networks</div>
+                    <div class="authors"><strong>Abdesselam, A.N.</strong>, Benzerbadj, A., Molcer, P.S.</div>
+                    <div class="venue"><em>Target Venue: IEEE Transactions on Evolutionary Computation (under preparation)</em></div>
+                    
+                    <div class="abstract">
+                        This work introduces a novel framework that models neighborhood selection in Variable Neighborhood Search (VNS) metaheuristics as a sequential decision-making problem. By integrating reinforcement learning principles, specifically the Upper Confidence Bound (UCB) strategy, the research addresses the challenge of adaptive search strategies in optimization problems. The approach demonstrates a 40% average fitness improvement in wireless sensor network relay node deployment scenarios, with significant gains in network coverage and connectivity while reducing the total number of required relay nodes.
+                    </div>
+                    
+                    <div class="keywords">
+                        <span>Metaheuristics</span>
+                        <span>Reinforcement Learning</span>
+                        <span>Wireless Sensor Networks</span>
+                        <span>Optimization</span>
+                        <span>Multi-armed Bandits</span>
+                    </div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="title">Context-Aware Recommender Systems for Urban Mobility: A Multi-Criteria Decision Making Approach</div>
+                    <div class="authors"><strong>Abdesselam, A.N.</strong>, Ben Othman, J., Benzerbadj, A.</div>
+                    <div class="venue"><em>Target Venue: ACM Transactions on Intelligent Systems and Technology (in review)</em></div>
+                    
+                    <div class="abstract">
+                        This research presents an intelligent context-aware recommender system designed for urban mobility optimization. The system utilizes Multi-Criteria Decision Making algorithms, including Fuzzy Analytical Hierarchy Process (Fuzzy-AHP) and Simple Additive Weighting (SAW), to provide personalized transportation recommendations. The work includes the development of a cross-platform mobile application and demonstrates the practical application of recommendation systems in smart city environments, addressing real-world challenges in urban transportation planning.
+                    </div>
+                    
+                    <div class="keywords">
+                        <span>Recommender Systems</span>
+                        <span>Urban Mobility</span>
+                        <span>Multi-Criteria Decision Making</span>
+                        <span>Smart Cities</span>
+                        <span>Mobile Applications</span>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- Research Areas Overview
+        <section class="section">
+            <h2>Research Focus Areas</h2>
+            <div class="research-areas">
+                <h3>Key Research Domains</h3>
+                <p>My research spans multiple interconnected domains within computer science and engineering, with a particular focus on intelligent systems and human-machine collaboration:</p>
+                <div class="areas-grid">
+                    <div class="area-tag">Recommender Systems</div>
+                    <div class="area-tag">Reinforcement Learning</div>
+                    <div class="area-tag">Human-Machine Interaction</div>
+                    <div class="area-tag">Manufacturing Intelligence</div>
+                    <div class="area-tag">Bayesian Networks</div>
+                    <div class="area-tag">Explainable AI</div>
+                    <div class="area-tag">Decision Support Systems</div>
+                    <div class="area-tag">IoT Security</div>
+                    <div class="area-tag">Metaheuristic Optimization</div>
+                    <div class="area-tag">Deep Learning</div>
+                    <div class="area-tag">Smart Cities</div>
+                    <div class="area-tag">Industrial AI</div>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- Future Research Directions 
+        <section class="section">
+            <h2>Future Research Directions</h2>
+            <p>Building upon my current doctoral research and previous work, I am exploring several promising directions that will contribute to the advancement of intelligent systems and human-machine collaboration:</p>
+            
+            <div class="upcoming-work">
+                <h3>Planned Research Initiatives</h3>
+                <p>The following research directions represent natural extensions of my current work and emerging opportunities in the field:</p>
+                
+                <li>Development of Process-Aware Bayesian Networks for manufacturing knowledge representation and reasoning</li>
+                <li>Implementation of Reinforcement Learning from Human Feedback (RLHF) in industrial recommendation systems</li>
+                <li>Investigation of explainable AI techniques for building operator trust in manufacturing environments</li>
+                <li>Exploration of federated learning approaches for privacy-preserving industrial AI systems</li>
+                <li>Development of adaptive user interfaces for human-machine collaborative systems</li>
+                <li>Research into multi-objective optimization for sustainable manufacturing processes</li>
+            </div>
+
+            <p>These research directions reflect my commitment to addressing real-world challenges through innovative applications of artificial intelligence, with particular emphasis on creating systems that effectively support human decision-making in complex industrial environments.</p>
+        </section>-->
+
+        <!-- External Links -->
+        <section class="section">
+            <h2>Academic Profiles & Resources</h2>
+            <p>For the most up-to-date information about my publications and research activities, please visit my academic profiles:</p>
+            
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem;">
+                <a href="https://scholar.google.com/citations?user=Zf2D43MAAAAJ&hl=fr" 
+                   style="background: #4285f4; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 4px; font-weight: 500;"
+                   target="_blank">Google Scholar Profile</a>
+                <a href="https://github.com/abdesselam-arch" 
+                   style="background: #333; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 4px; font-weight: 500;"
+                   target="_blank">GitHub Repository</a>
+                <a href="https://www.linkedin.com/in/ahmed-nour-abdesselam-79aa1a245/" 
+                   style="background: #0077b5; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 4px; font-weight: 500;"
+                   target="_blank">LinkedIn Profile</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Ahmed Nour Abdesselam. All rights reserved.</p>
+    </footer>
+</body>
+</html>

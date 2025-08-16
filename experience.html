@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience - Ahmed Nour Abdesselam</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, #1e88e5 0%, #546e7a 100%);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+        }
+
+        .header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Navigation Styles */
+        .nav {
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav li {
+            padding: 1rem 0;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #546e7a;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav a:hover, .nav a.active {
+            background-color: #1e88e5;
+            color: white;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .section {
+            background: white;
+            border-radius: 8px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .section h2 {
+            color: #1e88e5;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            font-weight: 400;
+            border-bottom: 3px solid #e3f2fd;
+            padding-bottom: 0.5rem;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, #1e88e5, #546e7a);
+            border-radius: 1.5px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 4rem;
+            padding-left: 2rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-left: -1rem;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3rem;
+            top: 2rem;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #1e88e5;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #1e88e5;
+            transform: translateX(-5px);
+        }
+
+        .timeline-item.current::before {
+            background: #4caf50;
+            box-shadow: 0 0 0 3px #4caf50;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(76, 175, 80, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+            }
+        }
+
+        .timeline-item .position {
+            color: #1e88e5;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .organization {
+            color: #546e7a;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .period {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .timeline-item .location {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline-item .description {
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline-item .achievements {
+            margin-top: 1.5rem;
+        }
+
+        .timeline-item .achievements h4 {
+            color: #546e7a;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .timeline-item .achievements ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .timeline-item .achievements li {
+            padding: 0.5rem 0;
+            color: #666;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .timeline-item .achievements li::before {
+            content: "✓";
+            color: #4caf50;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .timeline-item .skills {
+            margin-top: 1.5rem;
+        }
+
+        .timeline-item .skills h4 {
+            color: #546e7a;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .timeline-item .skills .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .timeline-item .skills .skill-tag {
+            background: #e3f2fd;
+            color: #1e88e5;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Institution Logo Placeholder */
+        .institution-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .logo-unibz {
+            background: #1e88e5;
+        }
+
+        .logo-gkn {
+            background: #37474f;
+            color: #ffc107;
+        }
+
+        .logo-centralesupelec {
+            background: #2196f3;
+        }
+
+        .logo-nato {
+            background: #4caf50;
+        }
+
+        .logo-university {
+            background: #9c27b0;
+        }
+
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .education-card {
+            background: #f8f9fa;
+            border-left: 4px solid #1e88e5;
+            padding: 2rem;
+            border-radius: 0 8px 8px 0;
+            transition: all 0.3s ease;
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .education-card .degree {
+            color: #1e88e5;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card .field {
+            color: #546e7a;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card .institution {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card .period {
+            color: #888;
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .education-card .thesis {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            font-style: italic;
+        }
+
+        /* Skills Overview */
+        .skills-overview {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f5f5f5 100%);
+            border-left: 4px solid #1e88e5;
+            padding: 2rem;
+            border-radius: 0 8px 8px 0;
+            margin: 2rem 0;
+        }
+
+        .skills-overview h3 {
+            color: #1e88e5;
+            margin-bottom: 1.5rem;
+        }
+
+        .skills-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category h4 {
+            color: #546e7a;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .skill-category .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-category .skill-item {
+            background: white;
+            color: #546e7a;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #546e7a;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .nav ul {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .nav li {
+                border-bottom: 1px solid #eee;
+            }
+
+            .section {
+                padding: 2rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .timeline {
+                padding-left: 2rem;
+            }
+
+            .timeline-item {
+                padding: 1.5rem;
+                margin-left: -0.5rem;
+            }
+
+            .timeline-item::before {
+                left: -2.5rem;
+            }
+
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-categories {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-content">
+            <h1>Professional Experience</h1>
+            <div class="subtitle">Academic Journey and Research Career</div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="experience.html" class="active">Experience</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Professional Experience Timeline -->
+        <section class="section">
+            <h2>Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item current">
+                    <div style="display: flex; gap: 10px;">
+                        <img src="image/UNIBZ.png" alt="unibz" class="institution-logo">
+                        <img src="image/GKNPMl.jpg" alt="unibz" class="institution-logo">
+                    </div>
+                    <div class="position">Industrial PhD Student</div>
+                    <div class="organization">Free University of Bozen-Bolzano</div>
+                    <div class="period">November 2024 - Present</div>
+                    <div class="location">Bolzano, Italy</div>
+                    <div class="description">
+                        Conducting advanced research on recommender systems for human-machine collaboration in manufacturing environments. This industrial PhD position, undertaken in collaboration with GKN Powder Metallurgy, focuses on developing intelligent systems that enhance decision-making processes in real-world manufacturing settings through the application of Process-Aware Bayesian Networks and Reinforcement Learning from Human Feedback.
+                    </div>
+                    <div class="achievements">
+                        <h4>Key Responsibilities & Achievements:</h4>
+                        <li>Leading research on Process-Aware Bayesian Networks for operational knowledge representation</li>
+                        <li>Developing Reinforcement Learning from Human Feedback (RLHF) frameworks for manufacturing contexts</li>
+                        <li>Collaborating with industry partners to ensure practical applicability of research outcomes</li>
+                        <li>Investigating adaptive recommendation systems aligned with operator preferences and real-time process states</li>
+                        <li>Contributing to the advancement of human-machine collaborative systems in industrial environments</li>
+                    </div>
+                    <div class="skills">
+                        <h4>Technologies & Methods:</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Recommender Systems</span>
+                            <span class="skill-tag">Bayesian Networks</span>
+                            <span class="skill-tag">Reinforcement Learning</span>
+                            <span class="skill-tag">Human-Machine Interaction</span>
+                            <span class="skill-tag">Manufacturing Intelligence</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <img src="image/VTS LOGO.png" alt="VTS" class="institution-logo">
+                    <div class="position">Research Assistant</div>
+                    <div class="organization">Visoka tehnička škola strukovnih studija</div>
+                    <div class="period">April 2024 - October 2024</div>
+                    <div class="location">Belgrade, Serbia</div>
+                    <div class="description">
+                        Conducting applied research on IoT system security with a focus on hardware Trojan detection in System-on-Chip architectures. This project, supported by the NATO Science for Peace and Security Programme, involves developing and implementing deep learning pipelines for enhanced cybersecurity in embedded IoT devices through sophisticated side-channel analysis techniques.
+                    </div>
+                    <div class="achievements">
+                        <h4>Research Contributions:</h4>
+                        <li>Designed deep learning models for hardware Trojan detection using side-channel analysis</li>
+                        <li>Implemented convolutional and feedforward neural networks for security enhancement</li>
+                        <li>Conducted time series analysis and automated feature extraction for anomaly detection</li>
+                        <li>Collaborated on international research initiatives under NATO SPS funding</li>
+                        <li>Published research findings in NATO Advanced Technology Conference proceedings</li>
+                    </div>
+                    <div class="skills">
+                        <h4>Technologies & Methods:</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Deep Learning</span>
+                            <span class="skill-tag">IoT Security</span>
+                            <span class="skill-tag">Side-Channel Analysis</span>
+                            <span class="skill-tag">Time Series Analysis</span>
+                            <span class="skill-tag">Hardware Security</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <img src="image/CS.png" alt="CS" class="institution-logo">
+                    <div class="position">Research Assistant</div>
+                    <div class="organization">CentraleSupélec Paris</div>
+                    <div class="period">June 2023 - September 2023</div>
+                    <div class="location">Paris, France</div>
+                    <div class="description">
+                        Developed an intelligent context-aware recommender system for urban mobility optimization. This project, funded by Zayed University and ASPIRE UAE, involved the design and implementation of sophisticated recommendation algorithms using Multi-Criteria Decision Making approaches, along with the development of a comprehensive mobile application for practical deployment.
+                    </div>
+                    <div class="achievements">
+                        <h4>Project Outcomes:</h4>
+                        <li>Designed and implemented Fuzzy-AHP and SAW algorithms for transportation recommendations</li>
+                        <li>Developed cross-platform mobile application using Flutter framework</li>
+                        <li>Presented comprehensive results to international project stakeholders</li>
+                        <li>Authored detailed technical documentation and strategic value proposition analysis</li>
+                        <li>Successfully demonstrated practical application of recommendation systems in smart city contexts</li>
+                    </div>
+                    <div class="skills">
+                        <h4>Technologies & Methods:</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Multi-Criteria Decision Making</span>
+                            <span class="skill-tag">Fuzzy Logic</span>
+                            <span class="skill-tag">Flutter Development</span>
+                            <span class="skill-tag">Mobile Applications</span>
+                            <span class="skill-tag">Urban Mobility</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <img src="image/VTS LOGO.png" alt="VTS" class="institution-logo">
+                    <div class="position">Graduate Researcher</div>
+                    <div class="organization">Master's Thesis Research</div>
+                    <div class="period">December 2023 - June 2024</div>
+                    <div class="location">Subotica, Serbia & Ain Temouchent, Algeria</div>
+                    <div class="description">
+                        Conducted innovative research on enhancing Variable Neighborhood Search performance through Reinforcement Learning applications. This thesis work involved developing a novel framework that models neighborhood selection in metaheuristics as a sequential decision-making problem, with practical applications in wireless sensor network optimization.
+                    </div>
+                    <div class="achievements">
+                        <h4>Research Innovation:</h4>
+                        <li>Proposed novel integration of reinforcement learning with metaheuristic optimization</li>
+                        <li>Implemented Upper Confidence Bound strategy within General Variable Neighborhood Search framework</li>
+                        <li>Achieved 40% average fitness improvement in wireless sensor network deployment scenarios</li>
+                        <li>Demonstrated significant gains in network coverage and connectivity optimization</li>
+                        <li>Developed open-source implementation available for research community</li>
+                    </div>
+                    <div class="skills">
+                        <h4>Technologies & Methods:</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Reinforcement Learning</span>
+                            <span class="skill-tag">Metaheuristics</span>
+                            <span class="skill-tag">Optimization</span>
+                            <span class="skill-tag">Wireless Sensor Networks</span>
+                            <span class="skill-tag">Multi-armed Bandits</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="section">
+            <h2>Education</h2>
+            <div class="education-grid">
+                <div class="education-card">
+                    <div class="degree">Doctor of Philosophy (PhD)</div>
+                    <div class="field">Computer Science</div>
+                    <div class="institution">Free University of Bozen-Bolzano, Italy</div>
+                    <div class="period">November 2024 - Expected 2027</div>
+                    <div class="thesis">
+                        <strong>Thesis Focus:</strong> Recommender Systems for Human-Machine Collaboration in Manufacturing - Developing intelligent systems that enhance decision-making processes through personalized recommendations and adaptive learning algorithms in industrial environments.
+                    </div>
+                </div>
+
+                <div class="education-card">
+                    <div class="degree">Master of Science (MSc)</div>
+                    <div class="field">Networks and Data Engineering</div>
+                    <div class="institution">University of Belhadj Bouchaib, Algeria</div>
+                    <div class="period">September 2022 - June 2024</div>
+                    <div class="thesis">
+                        <strong>Master Thesis:</strong> Enhancing Variable Neighborhood Search (VNS) Performance using Reinforcement Learning (RL) for Relay Node Deployment in Wireless Sensor Networks - Achieved 40% average fitness improvement through novel RL-guided metaheuristic approach.
+                    </div>
+                </div>
+
+                <div class="education-card">
+                    <div class="degree">Bachelor of Science (BSc)</div>
+                    <div class="field">Computer Science and Mathematics</div>
+                    <div class="institution">University of Belhadj Bouchaib, Algeria</div>
+                    <div class="period">September 2019 - June 2022</div>
+                    <div class="thesis">
+                        <strong>Foundation Studies:</strong> Comprehensive program covering fundamental computer science principles, mathematical foundations, and early exposure to advanced topics in artificial intelligence and optimization theory.
+                    </div>
+                </div>
+
+                <div class="education-card">
+                    <div class="degree">Erasmus+ Exchange</div>
+                    <div class="field">International Research Experience</div>
+                    <div class="institution">Visoka tehnička škola strukovnih studija, Serbia</div>
+                    <div class="period">February 2024 - June 2024</div>
+                    <div class="thesis">
+                        <strong>Scholarship Program:</strong> International research collaboration focusing on IoT security and hardware Trojan detection, culminating in NATO-supported research publication and ongoing collaborative projects.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Skills Overview -->
+        <section class="section">
+            <h2>Technical Expertise</h2>
+            <div class="skills-overview">
+                <h3>Core Technical Competencies</h3>
+                <p>My technical expertise spans multiple domains within computer science and engineering, with particular strength in artificial intelligence, machine learning, and software development. This diverse skill set enables me to tackle complex research challenges from multiple perspectives and develop comprehensive solutions that bridge theory and practice.</p>
+                
+                <div class="skills-categories">
+                    <div class="skill-category">
+                        <h4>Programming Languages</h4>
+                        <div class="skill-list">
+                            <span class="skill-item">Python</span>
+                            <span class="skill-item">MATLAB</span>
+                            <span class="skill-item">PHP</span>
+                            <span class="skill-item">Dart</span>
+                            <span class="skill-item">JavaScript</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Machine Learning & AI</h4>
+                        <div class="skill-list">
+                            <span class="skill-item">TensorFlow</span>
+                            <span class="skill-item">PyTorch</span>
+                            <span class="skill-item">Keras</span>
+                            <span class="skill-item">Scikit-Learn</span>
+                            <span class="skill-item">Reinforcement Learning</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Data Analysis & Visualization</h4>
+                        <div class="skill-list">
+                            <span class="skill-item">Tableau</span>
+                            <span class="skill-item">Microsoft Power BI</span>
+                            <span class="skill-item">Pandas</span>
+                            <span class="skill-item">NumPy</span>
+                            <span class="skill-item">Matplotlib</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Web & Mobile Development</h4>
+                        <div class="skill-list">
+                            <span class="skill-item">Laravel</span>
+                            <span class="skill-item">Flutter</span>
+                            <span class="skill-item">HTML/CSS</span>
+                            <span class="skill-item">REST APIs</span>
+                            <span class="skill-item">Database Design</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Research Methodologies</h4>
+                        <div class="skill-list">
+                            <span class="skill-item">Recommender Systems</span>
+                            <span class="skill-item">Bayesian Networks</span>
+                            <span class="skill-item">Optimization</span>
+                            <span class="skill-item">Statistical Analysis</span>
+                            <span class="skill-item">Experimental Design</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Languages</h4>
+                        <div class="skill-list">
+                            <span class="skill-item">English (Advanced)</span>
+                            <span class="skill-item">French (Advanced)</span>
+                            <span class="skill-item">Arabic (Native)</span>
+                            <span class="skill-item">Italian (Learning)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Ahmed Nour Abdesselam. All rights reserved.</p>
+    </footer>
+</body>
+</html>

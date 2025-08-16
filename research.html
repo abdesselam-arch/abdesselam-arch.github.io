@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research - Ahmed Nour Abdesselam</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, #1e88e5 0%, #546e7a 100%);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+        }
+
+        .header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Navigation Styles */
+        .nav {
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav li {
+            padding: 1rem 0;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #546e7a;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav a:hover, .nav a.active {
+            background-color: #1e88e5;
+            color: white;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .section {
+            background: white;
+            border-radius: 8px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .section h2 {
+            color: #1e88e5;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            font-weight: 400;
+            border-bottom: 3px solid #e3f2fd;
+            padding-bottom: 0.5rem;
+        }
+
+        .section h3 {
+            color: #546e7a;
+            font-size: 1.4rem;
+            margin: 2rem 0 1rem 0;
+            font-weight: 500;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        /* PhD Research Section */
+        .phd-research {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f5f5f5 100%);
+            border-left: 4px solid #1e88e5;
+            padding: 2rem;
+            border-radius: 0 8px 8px 0;
+            margin: 2rem 0;
+        }
+
+        .phd-research h3 {
+            color: #1e88e5;
+            margin-top: 0;
+        }
+
+        /* Research Areas Grid */
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .research-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid #1e88e5;
+            transition: transform 0.3s ease;
+        }
+
+        .research-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .research-card h4 {
+            color: #1e88e5;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .research-card p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .research-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .research-card li {
+            padding: 0.3rem 0;
+            color: #666;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .research-card li::before {
+            content: "▸";
+            color: #1e88e5;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Project Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #1e88e5;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #1e88e5;
+            transform: translateX(-5px);
+        }
+
+        .timeline-item h4 {
+            color: #1e88e5;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .period {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .timeline-item .institution {
+            color: #546e7a;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        /* Methodology Section */
+        .methodology-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .method-card {
+            background: white;
+            border: 2px solid #e3f2fd;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .method-card:hover {
+            border-color: #1e88e5;
+            transform: translateY(-3px);
+        }
+
+        .method-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1e88e5;
+        }
+
+        .method-card h5 {
+            color: #546e7a;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .method-card p {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #546e7a;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .nav ul {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .nav li {
+                border-bottom: 1px solid #eee;
+            }
+
+            .section {
+                padding: 2rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .timeline {
+                padding-left: 1rem;
+            }
+
+            .timeline-item {
+                padding-left: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-content">
+            <h1>Research Portfolio</h1>
+            <div class="subtitle">Exploring Human-Machine Collaboration in Manufacturing</div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="research.html" class="active">Research</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Current PhD Research -->
+        <section class="section">
+            <h2>Current PhD Research</h2>
+            <div class="phd-research">
+                <h3>Recommender Systems for Human-Machine Collaboration in Manufacturing</h3>
+                <p><strong>Duration:</strong> November 2024 - October 2027</p>
+                <p><strong>Supervisors:</strong> Prof. Markus Zanker and Prof. Angelika Peer</p>
+                <p><strong>Industrial Partner:</strong> GKN Powder Metallurgy</p>
+                
+                <p>My doctoral research focuses on developing intelligent recommender systems that enhance decision-making processes in manufacturing environments. The work explores how artificial intelligence can support human operators by providing personalized, context-aware recommendations that improve both efficiency and quality in industrial settings.</p>
+                
+                <h4>Key Research Questions:</h4>
+                <ul style="list-style: disc; margin-left: 2rem; margin-top: 1rem;">
+                    <li>How can Process-Aware Bayesian Networks effectively capture and represent operational knowledge from historical manufacturing decision logs?</li>
+                    <li>What are the optimal strategies for implementing Reinforcement Learning from Human Feedback (RLHF) in dynamic manufacturing environments?</li>
+                    <li>How can recommender systems adapt to real-time process states while maintaining alignment with individual operator preferences?</li>
+                    <li>What factors influence the acceptance and effectiveness of AI-driven recommendations in human-machine collaborative scenarios?</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Research Interests -->
+        <section class="section">
+            <h2>Research Interests</h2>
+            <div class="research-grid">
+                <div class="research-card">
+                    <h4>🤖 Recommender Systems</h4>
+                    <p>Developing intelligent systems that provide personalized recommendations for decision support in complex industrial environments.</p>
+                    <ul>
+                        <li>Context-aware recommendation algorithms</li>
+                        <li>Multi-criteria decision making</li>
+                        <li>Adaptive user modeling</li>
+                    </ul>
+                </div>
+
+                <div class="research-card">
+                    <h4>🔄 Reinforcement Learning</h4>
+                    <p>Applying RL techniques to optimize decision-making processes and improve system adaptation to changing environments.</p>
+                    <ul>
+                        <li>Reinforcement Learning from Human Feedback</li>
+                        <li>Multi-armed bandit problems</li>
+                        <li>Sequential decision making</li>
+                    </ul>
+                </div>
+
+                <div class="research-card">
+                    <h4>🧠 Explainable AI</h4>
+                    <p>Creating transparent AI systems that provide interpretable recommendations and build trust in human-machine collaboration.</p>
+                    <ul>
+                        <li>Interpretable machine learning models</li>
+                        <li>Explanation generation</li>
+                        <li>User trust and acceptance</li>
+                    </ul>
+                </div>
+
+                <div class="research-card">
+                    <h4>🏭 Human-Machine Collaboration</h4>
+                    <p>Investigating effective strategies for integrating AI systems with human expertise in manufacturing and industrial settings.</p>
+                    <ul>
+                        <li>Human-AI interaction design</li>
+                        <li>Collaborative decision making</li>
+                        <li>Industrial automation</li>
+                    </ul>
+                </div>
+
+                <div class="research-card">
+                    <h4>🕸️ Bayesian Networks</h4>
+                    <p>Utilizing probabilistic models to represent uncertainty and capture complex relationships in manufacturing processes.</p>
+                    <ul>
+                        <li>Process-aware probabilistic models</li>
+                        <li>Uncertainty quantification</li>
+                        <li>Knowledge representation</li>
+                    </ul>
+                </div>
+
+                <div class="research-card">
+                    <h4>⚙️ Operations Research</h4>
+                    <p>Applying mathematical optimization and decision analysis techniques to solve complex industrial problems.</p>
+                    <ul>
+                        <li>Optimization algorithms</li>
+                        <li>Decision support systems</li>
+                        <li>Performance analysis</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Methodology -->
+        <section class="section">
+            <h2>Research Methodology</h2>
+            <p>My research approach combines theoretical foundations with practical applications, employing a variety of methodologies to address complex problems in human-machine collaboration.</p>
+            
+            <div class="methodology-grid">
+                <div class="method-card">
+                    <div class="icon">📊</div>
+                    <h5>Data-Driven Analysis</h5>
+                    <p>Utilizing large-scale manufacturing datasets to identify patterns and extract insights for recommendation system development.</p>
+                </div>
+
+                <div class="method-card">
+                    <div class="icon">🧪</div>
+                    <h5>Experimental Design</h5>
+                    <p>Conducting controlled experiments to evaluate the effectiveness of different recommendation strategies and algorithms.</p>
+                </div>
+
+                <div class="method-card">
+                    <div class="icon">🏗️</div>
+                    <h5>System Development</h5>
+                    <p>Building prototype systems and implementing novel algorithms to validate theoretical concepts in practical settings.</p>
+                </div>
+
+                <div class="method-card">
+                    <div class="icon">👥</div>
+                    <h5>User Studies</h5>
+                    <p>Conducting human-centered evaluations to understand user behavior and system acceptance in real-world scenarios.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Timeline -->
+        <section class="section">
+            <h2>Research Timeline</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>PhD Research - Human-Machine Collaboration</h4>
+                    <div class="period">November 2024 - October 2027</div>
+                    <div class="institution">Free University of Bozen-Bolzano & GKN Powder Metallurgy</div>
+                    <p>Industrial PhD focusing on recommender systems for manufacturing environments. Developing Process-Aware Bayesian Networks and implementing RLHF for adaptive recommendation systems.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Side-Channel Analysis for Hardware Trojan Detection</h4>
+                    <div class="period">April 2024 - Present</div>
+                    <div class="institution">Visoka tehnička škola strukovnih studija, Belgrade</div>
+                    <p>Research on IoT system security using deep learning for hardware Trojan detection in System-on-Chip architectures. Supported by NATO Science for Peace and Security Programme.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Master's Thesis - VNS Enhancement with Reinforcement Learning</h4>
+                    <div class="period">December 2023 - June 2024</div>
+                    <div class="institution">University of Belhadj Bouchaib & Visoka tehnička škola</div>
+                    <p>Developed a novel framework integrating reinforcement learning with Variable Neighborhood Search metaheuristics, achieving 40% average fitness improvement for wireless sensor network optimization.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Context-Aware Urban Mobility Recommender</h4>
+                    <div class="period">June 2023 - September 2023</div>
+                    <div class="institution">CentraleSupélec Paris</div>
+                    <p>Designed intelligent recommender system for urban mobility using Multi-Criteria Decision Making algorithms and developed cross-platform mobile application using Flutter.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Ahmed Nour Abdesselam. All rights reserved.</p>
+    </footer>
+</body>
+</html>
