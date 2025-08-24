@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" type="image/png" href="image/ANAlogo.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmed Nour Abdesselam - PhD Researcher</title>
+    <title>Ahmed Nour Abdesselam</title>
+    <link rel="icon" type="image/png" href="image/ANAlogo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -13,320 +14,280 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #f8f9fa;
+            background-color: #fff;
+            font-size: 16px;
         }
 
-        /* Header Styles */
-        .header {
-            background: linear-gradient(135deg, #1e88e5 0%, #546e7a 100%);
-            color: white;
-            padding: 2rem 0;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .header-content {
-            max-width: 1200px;
+        .container {
+            max-width: 900px;
             margin: 0 auto;
             padding: 0 2rem;
-            display: flex;
-            align-items: center;
-            gap: 2rem;
         }
 
-        .profile-image {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 4px solid white;
-            object-fit: cover;
-        }
-
-        .header-text h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            font-weight: 300;
-        }
-
-        .header-text .title {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 0.5rem;
-        }
-
-        .header-text .institution {
-            font-size: 1rem;
-            opacity: 0.8;
-        }
-
-        /* Navigation Styles */
+        /* Navigation */
         .nav {
-            background-color: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
+            padding: 2rem 0 1rem 0;
+            text-align: right;
         }
 
         .nav ul {
             list-style: none;
-            display: flex;
+            display: inline-flex;
             gap: 2rem;
-        }
-
-        .nav li {
-            padding: 1rem 0;
+            margin: 0;
         }
 
         .nav a {
+            color: #4a90a4;
             text-decoration: none;
-            color: #546e7a;
+            font-weight: normal;
+            transition: color 0.2s ease;
+        }
+
+        .nav a:hover {
+            color: #2c5f70;
+        }
+
+        .nav a.active {
+            color: #333;
             font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: all 0.3s ease;
         }
 
-        .nav a:hover, .nav a.active {
-            background-color: #1e88e5;
-            color: white;
+        /* Header section with photo and info */
+        .header-section {
+            display: flex;
+            align-items: flex-start;
+            gap: 3rem;
+            margin: 3rem 0 4rem 0;
         }
 
-        /* Main Content */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
+        .profile-photo {
+            flex-shrink: 0;
         }
 
-        .hero-section {
-            background: white;
-            border-radius: 8px;
-            padding: 3rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        .profile-photo img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
         }
 
-        .hero-section h2 {
-            color: #1e88e5;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            font-weight: 400;
+        .profile-info {
+            flex: 1;
+            padding-top: 1rem;
         }
 
-        .hero-section p {
-            font-size: 1.1rem;
-            color: #666;
-            margin-bottom: 1.5rem;
-        }
-
-        .research-highlight {
-            background: linear-gradient(135deg, #e3f2fd 0%, #f5f5f5 100%);
-            border-left: 4px solid #1e88e5;
-            padding: 2rem;
-            border-radius: 0 8px 8px 0;
-            margin: 2rem 0;
-        }
-
-        .research-highlight h3 {
-            color: #1e88e5;
-            margin-bottom: 1rem;
-        }
-
-        /* Grid Layout for Quick Info */
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .info-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .info-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .info-card h3 {
-            color: #546e7a;
-            margin-bottom: 1rem;
+        .name-and-social {
             display: flex;
             align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .name {
+            font-size: 2.2rem;
+            font-weight: 300;
+            color: #333;
+        }
+
+        .social-icons {
+            display: flex;
             gap: 0.5rem;
         }
 
-        .info-card ul {
-            list-style: none;
+        .social-icons a {
+            color: #4a90a4;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: color 0.2s ease;
         }
 
-        .info-card li {
-            padding: 0.5rem 0;
+        .social-icons a:hover {
+            color: #2c5f70;
+        }
+
+        .title {
+            font-size: 1rem;
             color: #666;
-            border-bottom: 1px solid #eee;
+            margin-bottom: 0.5rem;
         }
 
-        .info-card li:last-child {
-            border-bottom: none;
-        }
-
-        /* Institution Logos */
-        .logos-section {
-            margin-top: 3rem;
-            text-align: center;
-        }
-
-        .logos-section h3 {
-            color: #546e7a;
+        .institution {
+            font-size: 1rem;
+            color: #666;
             margin-bottom: 2rem;
         }
 
-        .logos-grid {
+        .institution a {
+            color: #4a90a4;
+            text-decoration: none;
+        }
+
+        .institution a:hover {
+            text-decoration: underline;
+        }
+
+        .intro {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 2rem;
+        }
+
+        .intro a {
+            color: #4a90a4;
+            text-decoration: none;
+        }
+
+        .intro a:hover {
+            text-decoration: underline;
+        }
+
+        /* Action links */
+        .action-links {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 3rem;
-            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 1rem;
         }
 
-        .logo-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .logo-item img {
-            height: 60px;
-            width: auto;
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
-        }
-
-        .logo-item:hover img {
-            opacity: 1;
-        }
-
-        .logo-item span {
-            font-size: 0.9rem;
-            color: #666;
-            font-weight: 500;
-        }
-
-        /* CTA Buttons */
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 0.8rem 2rem;
-            border: none;
-            border-radius: 4px;
+        .action-links a {
+            color: #4a90a4;
             text-decoration: none;
             font-weight: 500;
-            transition: all 0.3s ease;
-            display: inline-block;
         }
 
-        .btn-primary {
-            background-color: #1e88e5;
-            color: white;
+        .action-links a:hover {
+            text-decoration: underline;
         }
 
-        .btn-primary:hover {
-            background-color: #1565c0;
+        /* Main sections */
+        .main-content {
+            margin-top: 4rem;
         }
 
-        .btn-secondary {
-            background-color: transparent;
-            color: #546e7a;
-            border: 2px solid #546e7a;
+        .section {
+            margin-bottom: 4rem;
         }
 
-        .btn-secondary:hover {
-            background-color: #546e7a;
-            color: white;
+        .section h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        .section p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .section a {
+            color: #4a90a4;
+            text-decoration: none;
+        }
+
+        .section a:hover {
+            text-decoration: underline;
+        }
+
+        /* Simple grid for info */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .info-item h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .info-item ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-item li {
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-size: 0.95rem;
         }
 
         /* Footer */
         .footer {
-            background-color: #546e7a;
-            color: white;
-            text-align: center;
+            margin-top: 6rem;
             padding: 2rem 0;
-            margin-top: 4rem;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
         }
 
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
+            .container {
+                padding: 0 1rem;
+            }
+
+            .nav {
                 text-align: center;
             }
 
-            .header-text h1 {
-                font-size: 2rem;
-            }
-
             .nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .header-section {
                 flex-direction: column;
-                gap: 0;
-            }
-
-            .nav li {
-                border-bottom: 1px solid #eee;
-            }
-
-            .hero-section {
-                padding: 2rem;
-            }
-
-            .container {
-                padding: 2rem 1rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-            }
-
-            .logos-grid {
+                align-items: center;
+                text-align: center;
                 gap: 2rem;
             }
+
+            .name-and-social {
+                justify-content: center;
+            }
+
+            .name {
+                font-size: 1.8rem;
+            }
+
+            .profile-photo img {
+                width: 150px;
+                height: 150px;
+            }
+
+            .action-links {
+                justify-content: center;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* Focus states for accessibility */
+        a:focus {
+            outline: 2px solid #4a90a4;
+            outline-offset: 2px;
         }
     </style>
 </head>
 <body>
-    <!-- Header Section -->
-    <header class="header">
-        <div class="header-content">
-            <img src="image/image.jpg" alt="Ahmed Nour Abdesselam" class="profile-image">
-            <div class="header-text">
-                <h1>Ahmed Nour Abdesselam</h1>
-                <div class="title">PhD Student in Computer Science</div>
-                <div class="institution">Free University of Bozen-Bolzano</div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-content">
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="nav">
             <ul>
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="research.html">Research</a></li>
@@ -334,87 +295,107 @@
                 <li><a href="experience.html">Experience</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-        </div>
-    </nav>
+        </nav>
 
-    <!-- Main Content -->
-    <main class="container">
-        <!-- Hero Section -->
-        <section class="hero-section">
-            <h2>Welcome to My Academic Portfolio</h2>
-            <p>I am a PhD student specializing in <strong>Recommender Systems for Human-Machine Collaboration in Manufacturing</strong>. My research focuses on developing intelligent systems that enhance decision-making processes in industrial environments through personalized recommendations and adaptive learning algorithms.</p>
-            
-            <div class="research-highlight">
-                <h3>Current Research Focus</h3>
-                <p>My doctoral research explores the intersection of recommender systems, reinforcement learning, and human-machine interaction in manufacturing contexts. I am particularly interested in developing Process-Aware Bayesian Networks and implementing Reinforcement Learning from Human Feedback (RLHF) to create adaptive recommendation systems that align with operator preferences and real-time process states.</p>
+        <!-- Header with photo and info -->
+        <header class="header-section">
+            <div class="profile-photo">
+                <img src="image/image.jpg" alt="Ahmed Nour Abdesselam">
             </div>
-
-            <div class="cta-buttons">
-                <a href="CV - Ahmed Nour ABDESSELAM.pdf" class="btn btn-primary" target="_blank">Download CV</a>
-                <a href="research.html" class="btn btn-secondary">View Research</a>
-            </div>
-        </section>
-
-        <!-- Quick Info Grid -->
-        <div class="info-grid">
-            <div class="info-card">
-                <h3>🎓 Education</h3>
-                <ul>
-                    <li><strong>PhD in Computer Science</strong> (2024-2027)<br>Free University of Bozen-Bolzano</li>
-                    <li><strong>MSc Networks & Data Engineering</strong> (2024)<br>University of Belhadj Bouchaib</li>
-                    <li><strong>BSc Computer Science & Mathematics</strong> (2022)<br>University of Belhadj Bouchaib</li>
-                </ul>
-            </div>
-
-            <div class="info-card">
-                <h3>🔬 Research Interests</h3>
-                <ul>
-                    <li>Recommender Systems</li>
-                    <li>Human-Machine Collaboration</li>
-                    <li>Reinforcement Learning</li>
-                    <li>Explainable AI</li>
-                    <li>Bayesian Networks</li>
-                    <li>Decision Support Systems</li>
-                </ul>
-            </div>
-
-            <div class="info-card">
-                <h3>💻 Technical Skills</h3>
-                <ul>
-                    <li>Python, MATLAB</li>
-                    <li>TensorFlow, PyTorch, Keras</li>
-                    <li>Scikit-Learn</li>
-                    <li>Tableau, Power BI</li>
-                    <li>Laravel PHP, Flutter</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Institutional Affiliations -->
-        <section class="logos-section">
-            <h3>Academic & Industrial Affiliations</h3>
-            <div class="logos-grid">
-                <div class="logo-item">
-                    <img src="image/UnibzEngLogo.png" alt="Free University of Bozen-Bolzano Logo">
+            <div class="profile-info">
+                <div class="name-and-social">
+                    <h1 class="name">Ahmed Nour Abdesselam</h1>
+                    <div class="social-icons">
+                        <a href="https://github.com/abdesselam-arch" title="GitHub" aria-label="Visit Ahmed's GitHub profile">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://x.com/AhmedAbdslm01" title="Twitter/X" aria-label="Follow Ahmed on Twitter/X">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="mailto:AhmedNour.Abdesselam@student.unibz.it" title="Email" aria-label="Send an email to Ahmed">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://scholar.google.com/citations?user=Zf2D43MAAAAJ&hl=fr" title="Google Scholar" aria-label="View Ahmed's Google Scholar profile">
+                            <i class="fas fa-graduation-cap"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/ahmed-nour-abdesselam-79aa1a245/" title="LinkedIn" aria-label="Connect with Ahmed on LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
                 </div>
-                <div class="logo-item">
-                    <img src="image/GKN_PM-removebg-preview.png" alt="GKN Powder Metallurgy Logo">
+                <div class="title">PhD Student in Computer Science</div>
+                <div class="institution">
+                    <a href="https://www.unibz.it/">Free University of Bozen-Bolzano</a>
                 </div>
-                <!--<div class="logo-item">
-                    <div style="width: 100px; height: 60px; background: #2196f3; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.8rem;">CentraleSupélec</div>
-                    <span>CentraleSupélec Paris</span>
+                
+                <div class="intro">
+                    Greetings! I am a PhD student specializing in <strong>Recommender Systems for Human-Machine Collaboration in Manufacturing</strong> at the <a href="https://www.unibz.it/">Free University of Bozen-Bolzano</a>, where I work in collaboration with <a href="#">GKN Powder Metallurgy</a>. My research focuses on developing intelligent systems that enhance decision-making processes in industrial environments through personalized recommendations and adaptive learning algorithms.
+                    <br><br>
+                    My doctoral research explores the intersection of recommender systems, reinforcement learning, and human-machine interaction in manufacturing contexts. I am particularly interested in developing Process-Aware Bayesian Networks and implementing Reinforcement Learning from Human Feedback (RLHF) to create adaptive recommendation systems that align with operator preferences and real-time process states.
                 </div>
-                <div class="logo-item">
-                    <div style="width: 100px; height: 60px; background: #4caf50; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.8rem;">NATO SPS</div>
-                    <span>NATO Science for Peace</span>
-                </div>-->
-            </div>
-        </section>
-    </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; 2025 Ahmed Nour Abdesselam. All rights reserved.</p>
-    </footer>
+                <div class="action-links">
+                    <a href="CV - Ahmed Nour ABDESSELAM.pdf">Download CV</a>
+                    <a href="research.html">View Research</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main content -->
+        <main class="main-content">
+            <section class="section">
+                <h2>Research</h2>
+                <p>My research interests are in recommender systems, human-machine collaboration, and reinforcement learning. I work towards developing intelligent systems that enhance decision-making processes in manufacturing environments, with particular focus on creating adaptive, context-aware recommendation algorithms that align with human operator preferences while optimizing industrial processes.</p>
+                
+                <p>Among all relevant topics, I am particularly interested in Process-Aware Bayesian Networks for knowledge representation, Reinforcement Learning from Human Feedback (RLHF) for adaptive systems, explainable AI for building operator trust, and the broader challenges of human-machine collaboration in industrial settings. For more details, check out my <a href="publications.html">publications</a> and the research group's work.</p>
+
+                <p><strong>Prospective collaborators:</strong> please feel free to <a href="contact.html">reach out</a>.</p>
+            </section>
+
+            <!-- Academic overview -->
+            <div class="info-grid">
+                <div class="info-item">
+                    <h3>Education</h3>
+                    <ul>
+                        <li><strong>PhD in Computer Science</strong> (2024-2027)<br>Free University of Bozen-Bolzano</li>
+                        <li><strong>MSc Networks & Data Engineering</strong> (2024)<br>University of Belhadj Bouchaib</li>
+                        <li><strong>BSc Computer Science & Mathematics</strong> (2022)<br>University of Belhadj Bouchaib</li>
+                    </ul>
+                </div>
+
+                <div class="info-item">
+                    <h3>Research Interests</h3>
+                    <ul>
+                        <li>Recommender Systems</li>
+                        <li>Human-Machine Collaboration</li>
+                        <li>Reinforcement Learning</li>
+                        <li>Explainable AI</li>
+                        <li>Bayesian Networks</li>
+                        <li>Decision Support Systems</li>
+                        <li>Manufacturing Intelligence</li>
+                        <li>IoT Security</li>
+                    </ul>
+                </div>
+
+                <div class="info-item">
+                    <h3>Technical Skills</h3>
+                    <ul>
+                        <li>Python, MATLAB</li>
+                        <li>TensorFlow, PyTorch, Keras</li>
+                        <li>Scikit-Learn</li>
+                        <li>Tableau, Power BI</li>
+                        <li>Laravel PHP, Flutter</li>
+                        <li>Multi-Criteria Decision Making</li>
+                        <li>Statistical Analysis</li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 Ahmed Nour Abdesselam. All rights reserved.</p>
+        </footer>
+    </div>
 </body>
 </html>

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>    
-    <link rel="icon" type="image/png" href="image/ANAlogo.png">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Ahmed Nour Abdesselam</title>
+    <link rel="icon" type="image/png" href="image/ANAlogo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -13,438 +14,277 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #f8f9fa;
+            background-color: #fff;
+            font-size: 16px;
         }
 
-        /* Header Styles */
-        .header {
-            background: linear-gradient(135deg, #1e88e5 0%, #546e7a 100%);
-            color: white;
-            padding: 1.5rem 0;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .header-content {
-            max-width: 1200px;
+        .container {
+            max-width: 900px;
             margin: 0 auto;
             padding: 0 2rem;
-            text-align: center;
         }
 
-        .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            font-weight: 300;
-        }
-
-        .header .subtitle {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        /* Navigation Styles */
+        /* Navigation */
         .nav {
-            background-color: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
+            padding: 2rem 0 1rem 0;
+            text-align: right;
         }
 
         .nav ul {
             list-style: none;
-            display: flex;
+            display: inline-flex;
             gap: 2rem;
-        }
-
-        .nav li {
-            padding: 1rem 0;
+            margin: 0;
         }
 
         .nav a {
+            color: #4a90a4;
             text-decoration: none;
-            color: #546e7a;
+            font-weight: normal;
+            transition: color 0.2s ease;
+        }
+
+        .nav a:hover {
+            color: #2c5f70;
+        }
+
+        .nav a.active {
+            color: #333;
             font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: all 0.3s ease;
         }
 
-        .nav a:hover, .nav a.active {
-            background-color: #1e88e5;
-            color: white;
+        /* Page header */
+        .page-header {
+            margin: 3rem 0 4rem 0;
+            text-align: center;
         }
 
-        /* Main Content */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
+        .page-title {
+            font-size: 2.2rem;
+            font-weight: 300;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-subtitle {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Main content */
+        .main-content {
+            margin-bottom: 4rem;
         }
 
         .section {
-            background: white;
-            border-radius: 8px;
-            padding: 3rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 4rem;
         }
 
         .section h2 {
-            color: #1e88e5;
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            font-weight: 400;
-            border-bottom: 3px solid #e3f2fd;
-            padding-bottom: 0.5rem;
-        }
-
-        /* Contact Grid */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .contact-info {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 8px;
-            border-left: 4px solid #1e88e5;
-        }
-
-        .contact-info h3 {
-            color: #1e88e5;
-            margin-bottom: 2rem;
-            font-size: 1.4rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            padding: 1rem;
-            background: white;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .contact-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .contact-item .icon {
-            width: 50px;
-            height: 50px;
-            background: #1e88e5;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            flex-shrink: 0;
-        }
-
-        .contact-item .details h4 {
-            color: #546e7a;
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        .contact-item .details p {
-            color: #666;
-            margin: 0;
-            font-size: 1rem;
-        }
-
-        .contact-item .details a {
-            color: #1e88e5;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .contact-item .details a:hover {
-            text-decoration: underline;
-        }
-
-        /* Social Links */
-        .social-links {
-            background: linear-gradient(135deg, #e3f2fd 0%, #f5f5f5 100%);
-            border-left: 4px solid #1e88e5;
-            padding: 2rem;
-            border-radius: 0 8px 8px 0;
-            margin: 2rem 0;
-        }
-
-        .social-links h3 {
-            color: #1e88e5;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .social-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .social-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            text-align: center;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .social-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .social-card .social-icon {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto 1rem;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             font-size: 1.5rem;
-            color: white;
-            font-weight: bold;
+            font-weight: 400;
+            color: #333;
+            margin-bottom: 2rem;
         }
 
-        .social-card .platform {
-            color: #546e7a;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .social-card .handle {
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        .github { background: #333; }
-        .email { background: #ea4335; }
-        .twitter { background: #1da1f2; }
-        .linkedin { background: #0077b5; }
-        .scholar { background: #4285f4; }
-
-        /* Collaboration Section */
-        .collaboration {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 8px;
-            border-left: 4px solid #4caf50;
-            margin: 2rem 0;
-        }
-
-        .collaboration h3 {
-            color: #4caf50;
-            margin-bottom: 1.5rem;
-        }
-
-        .collaboration p {
-            color: #555;
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .collaboration .interests {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .collaboration .interest-item {
-            background: white;
-            padding: 1rem;
-            border-radius: 8px;
-            border-left: 3px solid #4caf50;
-        }
-
-        .collaboration .interest-item h4 {
-            color: #4caf50;
-            margin-bottom: 0.5rem;
+        .section p {
             font-size: 1rem;
-        }
-
-        .collaboration .interest-item p {
-            color: #666;
-            font-size: 0.9rem;
-            margin: 0;
-        }
-
-        /* Location & Availability */
-        .availability {
-            background: #fff8e1;
-            border-left: 4px solid #ff9800;
-            padding: 2rem;
-            border-radius: 0 8px 8px 0;
-            margin: 2rem 0;
-        }
-
-        .availability h3 {
-            color: #ff9800;
+            line-height: 1.6;
+            color: #333;
             margin-bottom: 1rem;
         }
 
-        .availability .status {
+        .section a {
+            color: #4a90a4;
+            text-decoration: none;
+        }
+
+        .section a:hover {
+            text-decoration: underline;
+        }
+
+        /* Contact grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin: 3rem 0;
+        }
+
+        .contact-section h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Contact details */
+        .contact-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
+        }
+
+        .contact-label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #666;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-value {
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .contact-value a {
+            color: #4a90a4;
+            text-decoration: none;
+        }
+
+        .contact-value a:hover {
+            text-decoration: underline;
+        }
+
+        /* Social media section */
+        .social-section {
+            background-color: #f9f9f9;
+            padding: 2rem;
+            border-left: 3px solid #ddd;
+        }
+
+        .social-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-item {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
+            gap: 0.75rem;
         }
 
-        .availability .status-indicator {
-            width: 12px;
-            height: 12px;
-            background: #4caf50;
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-
-        .availability .status span {
-            color: #666;
-            font-weight: 500;
-        }
-
-        /* Quick Contact Form */
-        .quick-contact {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 8px;
-        }
-
-        .quick-contact h3 {
-            color: #546e7a;
-            margin-bottom: 1.5rem;
-        }
-
-        .quick-contact p {
-            color: #666;
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-        }
-
-        .contact-cta {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-cta .btn {
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 4px;
+        .social-item a {
+            color: #4a90a4;
             text-decoration: none;
             font-weight: 500;
-            transition: all 0.3s ease;
-            display: inline-block;
         }
 
-        .contact-cta .btn-primary {
-            background-color: #1e88e5;
-            color: white;
+        .social-item a:hover {
+            text-decoration: underline;
         }
 
-        .contact-cta .btn-primary:hover {
-            background-color: #1565c0;
+        .social-icon {
+            font-size: 1.2rem;
+            width: 24px;
+            text-align: center;
         }
 
-        .contact-cta .btn-secondary {
-            background-color: transparent;
-            color: #546e7a;
-            border: 2px solid #546e7a;
+        /* Collaboration section */
+        .collaboration-section {
+            background-color: #f9f9f9;
+            padding: 2rem;
+            margin: 3rem 0;
+            border-left: 3px solid #ddd;
         }
 
-        .contact-cta .btn-secondary:hover {
-            background-color: #546e7a;
-            color: white;
+        .collaboration-section h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        /* Action buttons */
+        .contact-actions {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-actions a {
+            color: #4a90a4;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.75rem 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+
+        .contact-actions a:hover {
+            border-bottom-color: #4a90a4;
         }
 
         /* Footer */
         .footer {
-            background-color: #546e7a;
-            color: white;
-            text-align: center;
+            margin-top: 6rem;
             padding: 2rem 0;
-            margin-top: 4rem;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
         }
 
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2rem;
+            .container {
+                padding: 0 1rem;
+            }
+
+            .nav {
+                text-align: center;
             }
 
             .nav ul {
-                flex-direction: column;
-                gap: 0;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
             }
 
-            .nav li {
-                border-bottom: 1px solid #eee;
-            }
-
-            .section {
-                padding: 2rem;
-            }
-
-            .container {
-                padding: 2rem 1rem;
+            .page-title {
+                font-size: 1.8rem;
             }
 
             .contact-grid {
                 grid-template-columns: 1fr;
+                gap: 3rem;
             }
 
-            .social-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .collaboration .interests {
+            .social-links {
                 grid-template-columns: 1fr;
+                gap: 1rem;
             }
 
-            .contact-cta {
+            .contact-actions {
                 flex-direction: column;
+                gap: 1rem;
             }
+
+            .collaboration-section {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Focus states */
+        a:focus {
+            outline: 2px solid #4a90a4;
+            outline-offset: 2px;
         }
     </style>
 </head>
 <body>
-    <!-- Header Section -->
-    <header class="header">
-        <div class="header-content">
-            <h1>Contact Information</h1>
-            <div class="subtitle">Let's Connect and Collaborate</div>
-        </div>
-    </header>
-
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-content">
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="nav">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="research.html">Research</a></li>
@@ -452,176 +292,121 @@
                 <li><a href="experience.html">Experience</a></li>
                 <li><a href="contact.html" class="active">Contact</a></li>
             </ul>
-        </div>
-    </nav>
+        </nav>
 
-    <!-- Main Content -->
-    <main class="container">
-        <!-- Contact Information Grid -->
-        <div class="contact-grid">
-            <!-- Primary Contact Information -->
-            <div class="contact-info">
-                <h3>Primary Contact</h3>
+        <!-- Page Header -->
+        <header class="page-header">
+            <h1 class="page-title">Contact</h1>
+            <div class="page-subtitle">Let's Connect and Collaborate</div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Contact Information -->
+            <section class="section">
+                <div class="contact-grid">
+                    <!-- Primary Contact -->
+                    <div class="contact-section">
+                        <h3>Primary Contact</h3>
+                        
+                        <div class="contact-item">
+                            <div class="contact-label">Academic Email</div>
+                            <div class="contact-value">
+                                <a href="mailto:AhmedNour.Abdesselam@student.unibz.it">AhmedNour.Abdesselam@student.unibz.it</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-label">Location</div>
+                            <div class="contact-value">Bolzano, South Tyrol, Italy</div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-label">Institution</div>
+                            <div class="contact-value">
+                                <a href="https://www.unibz.it/">Free University of Bozen-Bolzano</a><br>
+                                Faculty of Computer Science
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-label">Research Group</div>
+                            <div class="contact-value">Human-centered Intelligent Systems (HCIS)</div>
+                        </div>
+                    </div>
+
+                    <!-- Research Collaboration -->
+                    <div class="contact-section">
+                        <h3>Research Collaboration</h3>
+                        <p>I am actively engaged in doctoral research and open to meaningful collaborations that advance the field of human-machine interaction and intelligent manufacturing systems. Whether you are interested in joint research projects, knowledge exchange, or exploring potential synergies between our work, I welcome the opportunity to connect.</p>
+                        
+                        <div class="contact-actions">
+                            <a href="mailto:AhmedNour.Abdesselam@student.unibz.it?subject=Research Collaboration Inquiry">Send Email</a>
+                            <a href="CV - Ahmed Nour ABDESSELAM.pdf">Download CV</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Professional Networks -->
+            <section class="section">
+                <h2>Professional Networks</h2>
                 
-                <div class="contact-item">
-                    <div class="icon">✉</div>
-                    <div class="details">
-                        <h4>Academic Email</h4>
-                        <p><a href="mailto:AhmedNour.Abdesselam@student.unibz.it">AhmedNour.Abdesselam@student.unibz.it</a></p>
+                <div class="social-section">
+                    <h3>Connect with me across various platforms</h3>
+                    <div class="social-links">
+                        <div class="social-item">
+                            <div class="social-icon"><i class="fab fa-github"></i></div>
+                            <div><a href="https://github.com/abdesselam-arch">GitHub (@abdesselam-arch)</a></div>
+                        </div>
+
+                        <div class="social-item">
+                            <div class="social-icon"><i class="fas fa-envelope"></i></div>
+                            <div><a href="mailto:AhmedNour.Abdesselam@student.unibz.it">University Email</a></div>
+                        </div>
+
+                        <div class="social-item">
+                            <div class="social-icon"><i class="fab fa-twitter"></i></div>
+                            <div><a href="https://x.com/AhmedAbdslm01">Twitter/X (@AhmedAbdslm01)</a></div>
+                        </div>
+
+                        <div class="social-item">
+                            <div class="social-icon"><i class="fab fa-linkedin"></i></div>
+                            <div><a href="https://www.linkedin.com/in/ahmed-nour-abdesselam-79aa1a245/">LinkedIn Profile</a></div>
+                        </div>
+
+                        <div class="social-item">
+                            <div class="social-icon"><i class="fas fa-graduation-cap"></i></div>
+                            <div><a href="https://scholar.google.com/citations?user=Zf2D43MAAAAJ&hl=fr">Google Scholar</a></div>
+                        </div>
+
+                        <div class="social-item">
+                            <div class="social-icon"><i class="fa-solid fa-globe"></i></div>
+                            <div><a href="https://github.com/abdesselam-arch">Personal Portfolio</a></div>
+                        </div>
                     </div>
                 </div>
+            </section>
 
-                <div class="contact-item">
-                    <div class="icon">📍</div>
-                    <div class="details">
-                        <h4>Location</h4>
-                        <p>Bolzano, South Tyrol, Italy</p>
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <div class="icon">🏛️</div>
-                    <div class="details">
-                        <h4>Institution</h4>
-                        <p>Free University of Bozen-Bolzano<br>Faculty of Computer Science</p>
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <div class="icon">🔬</div>
-                    <div class="details">
-                        <h4>Research Group</h4>
-                        <p>Human-centered Intelligent Systems (HCIS)</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Current Status & Availability -->
-            <div class="quick-contact">
-                <h3>Research Collaboration</h3>
-                <p>I am actively engaged in doctoral research and open to meaningful collaborations that advance the field of human-machine interaction and intelligent manufacturing systems. Whether you are interested in joint research projects, knowledge exchange, or exploring potential synergies between our work, I welcome the opportunity to connect.</p>
+            <!-- Final Section -->
+            <section class="section">
+                <h2>Get In Touch</h2>
                 
-                <div class="contact-cta">
-                    <a href="mailto:AhmedNour.Abdesselam@student.unibz.it?subject=Research Collaboration Inquiry" class="btn btn-primary">Send Email</a>
-                    <a href="CV - Ahmed Nour ABDESSELAM.pdf" class="btn btn-secondary" target="_blank">Download CV</a>
+                <div class="collaboration-section">
+                    <h3>Research Collaboration Opportunities</h3>
+                    <p>Whether you are interested in discussing research collaborations, exploring potential joint projects, or simply connecting with fellow researchers in related fields, I encourage you to reach out. I believe that meaningful scientific progress often emerges from productive collaborations and knowledge exchange between researchers working on complementary problems.</p>
+                    
+                    <p>For research-related inquiries, please feel free to contact me via email at <a href="mailto:AhmedNour.Abdesselam@student.unibz.it">AhmedNour.Abdesselam@student.unibz.it</a>. I typically respond to emails within 24-48 hours and am happy to schedule virtual meetings to discuss potential collaborations in greater detail.</p>
                 </div>
-            </div>
-        </div>
 
-        <!-- Professional Social Networks -->
-        <section class="section">
-            <h2>Professional Networks</h2>
-            <div class="social-links">
-            <h3>Connect with me across various platforms</h3>
-            <div class="social-grid">
-                    <a href="https://github.com/abdesselam-arch" class="social-card" target="_blank">
-                        <div class="social-icon github">GH</div>
-                        <div class="platform">GitHub</div>
-                        <div class="handle">@abdesselam-arch</div>
-                    </a>
+                <p>For a comprehensive overview of my background and current research focus, please feel free to download and review my curriculum vitae using the link provided above. You can also explore my academic profiles and repositories for additional insights into my research activities and technical contributions.</p>
+            </section>
+        </main>
 
-                    <a href="mailto:AhmedNour.Abdesselam@student.unibz.it" class="social-card">
-                        <div class="social-icon email">@</div>
-                        <div class="platform">Email</div>
-                        <div class="handle">University Address</div>
-                    </a>
-
-                    <a href="https://x.com/AhmedAbdslm01" class="social-card" target="_blank">
-                        <div class="social-icon twitter">X</div>
-                        <div class="platform">Twitter/X</div>
-                        <div class="handle">@AhmedAbdslm01</div>
-                    </a>
-
-                    <a href="https://www.linkedin.com/in/ahmed-nour-abdesselam-79aa1a245/" class="social-card" target="_blank">
-                        <div class="social-icon linkedin">in</div>
-                        <div class="platform">LinkedIn</div>
-                        <div class="handle">Professional Profile</div>
-                    </a>
-
-                    <a href="https://scholar.google.com/citations?user=Zf2D43MAAAAJ&hl=fr" class="social-card" target="_blank">
-                        <div class="social-icon scholar">GS</div>
-                        <div class="platform">Google Scholar</div>
-                        <div class="handle">Publications & Citations</div>
-                    </a>
-
-                    <a href="https://github.com/abdesselam-arch" class="social-card" target="_blank">
-                        <div class="social-icon" style="background: #1e88e5;">🌐</div>
-                        <div class="platform">Website</div>
-                        <div class="handle">Personal Portfolio</div>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Research Collaboration Interests
-        <section class="section">
-            <h2>Collaboration Opportunities</h2>
-            <div class="collaboration">
-                <h3>Research Interests & Partnership Areas</h3>
-                <p>I am particularly interested in collaborating on research projects that bridge theoretical advances with practical applications in intelligent manufacturing and human-machine interaction. My current doctoral work provides opportunities for interdisciplinary collaboration across multiple domains.</p>
-                
-                <div class="interests">
-                    <div class="interest-item">
-                        <h4>🤖 Recommender Systems</h4>
-                        <p>Development of intelligent recommendation algorithms for industrial applications, with focus on human-machine collaborative decision making.</p>
-                    </div>
-
-                    <div class="interest-item">
-                        <h4>🧠 Reinforcement Learning</h4>
-                        <p>Application of RL techniques in manufacturing environments, particularly RLHF for adaptive system behavior and optimization.</p>
-                    </div>
-
-                    <div class="interest-item">
-                        <h4>🏭 Industrial AI</h4>
-                        <p>Real-world deployment of AI systems in manufacturing settings, focusing on practical challenges and human acceptance factors.</p>
-                    </div>
-
-                    <div class="interest-item">
-                        <h4>🔒 IoT Security</h4>
-                        <p>Hardware security research, particularly in side-channel analysis and deep learning approaches for threat detection.</p>
-                    </div>
-
-                    <div class="interest-item">
-                        <h4>📊 Explainable AI</h4>
-                        <p>Development of transparent AI systems that provide interpretable recommendations and build operator trust.</p>
-                    </div>
-
-                    <div class="interest-item">
-                        <h4>🎯 Decision Support</h4>
-                        <p>Multi-criteria decision making systems, Bayesian networks, and probabilistic reasoning for complex industrial scenarios.</p>
-                    </div>
-                </div>
-            </div>
-        </section> -->
-
-        <!-- Current Status
-        <section class="section">
-            <h2>Current Status & Availability</h2>
-            <div class="availability">
-                <h3>Research Activity Status</h3>
-                <div class="status">
-                    <div class="status-indicator"></div>
-                    <span>Currently active in doctoral research and open to collaboration</span>
-                </div>
-                <p>I am currently in the initial phase of my doctoral research at the Free University of Bozen-Bolzano, working in collaboration with GKN Powder Metallurgy on developing intelligent recommender systems for manufacturing environments. This presents an excellent opportunity for collaborative research projects that can benefit from both academic rigor and industrial relevance.</p>
-                <p>I am particularly interested in connecting with researchers who share interests in human-machine collaboration, industrial AI applications, or related areas where our work might complement each other. Whether you are working in academia, industry, or at the intersection of both, I welcome discussions about potential collaborative opportunities.</p>
-            </div>
-        </section> -->
-
-        <!-- Final Call to Action -->
-        <section class="section">
-            <h2>Get In Touch</h2>
-            <p>Whether you are interested in discussing research collaborations, exploring potential joint projects, or simply connecting with fellow researchers in related fields, I encourage you to reach out. I believe that meaningful scientific progress often emerges from productive collaborations and knowledge exchange between researchers working on complementary problems.</p>
-            
-            <p>For research-related inquiries, please feel free to contact me via email at <a href="mailto:AhmedNour.Abdesselam@student.unibz.it" style="color: #1e88e5; font-weight: 500;">AhmedNour.Abdesselam@student.unibz.it</a>. I typically respond to emails within 24-48 hours and am happy to schedule virtual meetings to discuss potential collaborations in greater detail.</p>
-
-            <p>For a comprehensive overview of my background and current research focus, please feel free to download and review my curriculum vitae using the link provided above. You can also explore my academic profiles and repositories for additional insights into my research activities and technical contributions.</p>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; 2025 Ahmed Nour Abdesselam. All rights reserved.</p>
-    </footer>
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 Ahmed Nour Abdesselam. All rights reserved.</p>
+        </footer>
+    </div>
 </body>
 </html>
